@@ -18,5 +18,10 @@ namespace AdventOfCode
 				}
 			}
 		}
+
+		public static IEnumerable<string> GetLinesForDay(int number)
+		{
+			return GetLinesFromFile("input/Day" + number +"Input.txt");
+		}
 	}
 }

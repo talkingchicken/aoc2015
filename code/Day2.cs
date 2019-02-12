@@ -28,7 +28,7 @@ namespace AdventOfCode
 
 		public static void PartTwo()
 		{
-			IEnumerable<string> lines = Utils.GetLinesFromFile("input/Day2Input.txt");
+			IEnumerable<string> lines = Utils.GetLinesForDay(2);
 
 			int total = lines.Select(x =>
 			{

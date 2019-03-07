@@ -13,30 +13,13 @@ namespace AdventOfCode
 	{
 		public static void PartOne()
 		{
-			var lines = Utils.GetLinesForDay(12);
-			string line = lines.ElementAt(0);
+			string line = Utils.GetLinesForDay(12).ElementAt(0);
 
-			StringBuilder parsedLine = new StringBuilder();
-			for (int i = 0; i < line.Count(); i++)
-			{
-				if (line[i] == '-' || (line[i] >= '0' && line[i] <='9'))
-				{
-					parsedLine.Append(line[i]);
-				}
-				else
-				{
-					parsedLine.Append(' ');
-				}
-			}
+			var jsonReader = JsonReaderWriterFactory.CreateJsonReader(Encoding.UTF8.GetBytes(line), new System.Xml.XmlDictionaryReaderQuotas());
 
-			string[] numbers = parsedLine.ToString().Split(" ");
+			var root = XElement.Load(jsonReader);
 
-			int total = 0;
-			foreach (string number in numbers)
-			{
-				if (!string.IsNullOrEmpty(number))
-					total += Convert.ToInt32(number);
-			}
+			int total  = ParseJsonTreeForTotal(root, "");
 
 			Console.WriteLine(total);
 		}

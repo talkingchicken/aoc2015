@@ -23,5 +23,10 @@ namespace AdventOfCode
 		{
 			return GetLinesFromFile("input/Day" + number +"Input.txt");
 		}
+
+		public static string RemoveLastChar(string input)
+		{
+			return input.Substring(0, input.Count() - 1);
+		}
 	}
 }

@@ -25,19 +25,14 @@ namespace AdventOfCode
 				calories = calorieParam;
 			}
 		}
-
-		private static string RemoveLastChar(string input)
-		{
-			return input.Substring(0, input.Count() - 1);
-		}
 		private static Ingredient ParseIngredientLine(string line)
 		{
 			string[] splitLine = line.Split(" ");
-			string name = RemoveLastChar(splitLine[0]);
-			int capacity = int.Parse(RemoveLastChar(splitLine[2]));
-			int durability = int.Parse(RemoveLastChar(splitLine[4]));
-			int flavor = int.Parse(RemoveLastChar(splitLine[6]));
-			int texture = int.Parse(RemoveLastChar(splitLine[8]));
+			string name = Utils.RemoveLastChar(splitLine[0]);
+			int capacity = int.Parse(Utils.RemoveLastChar(splitLine[2]));
+			int durability = int.Parse(Utils.RemoveLastChar(splitLine[4]));
+			int flavor = int.Parse(Utils.RemoveLastChar(splitLine[6]));
+			int texture = int.Parse(Utils.RemoveLastChar(splitLine[8]));
 			int calories = int.Parse(splitLine[10]);
 
 			return new Ingredient(name, capacity, durability, flavor, texture, calories);
